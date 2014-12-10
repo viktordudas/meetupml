@@ -119,8 +119,8 @@ function plot3x3(x, y) {
 }
 
 function paramStore2(x, y) {
-	x2 = Math.floor(px + l * ddx);
-	y2 = Math.floor(py + l * ddy);
+	var x2 = Math.floor(x / w * 32);
+	var y2 = Math.floor(y / h * 32);
 	plot3x3(x2, y2);
 }
 
