@@ -1,4 +1,4 @@
-﻿function callnodejs(data, success) {
+function callnodejs(data, success) {
 	$.ajax({
 		type: "POST",
 		url: "nodejsws",
@@ -8,11 +8,11 @@
 		success: OnSuccess,
 		error: OnError
 	});
-	
+
 	function OnSuccess(data, status) {
 		success(data);
 	}
-	
+
 	function OnError(request, status, error) {
 		alert(request.statusText);
 	}
@@ -33,16 +33,16 @@ function newCanvas() {
 	w = $(window).width();
 	h = $(window).height();
 	paramClear();
-	
+
 	var canvas = "<canvas id='canvas' width='" + w + "' height='" + h + "'></canvas>";
 	$("#page1").html(canvas);
-	
+
 	// setup canvas
 	ctx = document.getElementById("canvas").getContext("2d");
 	ctx.strokeStyle = color;
 	ctx.lineWidth = 15;
 	ctx.lineCap = "round";
-	
+
 	// setup to trigger drawing on mouse or touch
 	$("#canvas").drawTouch();
 	$("#canvas").drawPointer();
@@ -93,6 +93,7 @@ $.fn.drawPointer = function () {
 
 var wsdelay = 800;
 var timer = null;
+var prev = null;
 var p0 = new Array(32);
 paramClear();
 
@@ -110,14 +111,50 @@ function brush(x, y) {
 		p0[x][y] = 1;
 }
 
-function paramStore(x, y) {
-	var x2 = Math.floor(x / w * 32);
-	var y2 = Math.floor(y / h * 32);
-	
+function plot3x3(x, y) {
 	// 3*3
 	for (i = -1; i <= 1; i++)
 		for (j = -1; j <= 1; j++)
-			brush(x2 + i, y2 + j);
+			brush(x + i, y + j);
+}
+
+function paramStore2(x, y) {
+	x2 = Math.floor(px + l * ddx);
+	y2 = Math.floor(py + l * ddy);
+	plot3x3(x2, y2);
+}
+
+function paramStore(x, y) {
+	var px = Math.floor(prev.x / w * 32);
+	var py = Math.floor(prev.y / h * 32);
+	prev = {
+		'x': x,
+		'y': y
+	};
+	var x2 = Math.floor(x / w * 32);
+	var y2 = Math.floor(y / h * 32);
+
+	var dx = x2 - px;
+	var dy = y2 - py;
+
+	var d = dx * dx + dy * dy;
+
+	if (d > 0) {
+		var d = Math.sqrt(d);
+
+		ddx = dx / d;
+		ddy = dy / d;
+
+		for (l = 0; l < d; l++) {
+			//console.log(d, l, ddx, ddy);
+			x2 = Math.floor(px + l * ddx);
+			y2 = Math.floor(py + l * ddy);
+			plot3x3(x2, y2);
+		}
+	} else {
+		//console.log("d = 0");
+		plot3x3(x2, y2);
+	}
 }
 
 var p1 = new Array(64);
@@ -126,7 +163,7 @@ function paramFix() {
 	for (var i = 0; i < 64; i++) {
 		p1[i] = 0;
 	}
-	
+
 	for (var i = 0; i < 32; i++) {
 		for (var j = 0; j < 32; j++) {
 			var i1 = Math.floor(i / 4);
@@ -149,17 +186,21 @@ $.fn.drawMouse = function () {
 		x = e.pageX;
 		y = e.pageY;
 		ctx.moveTo(x, y);
+		prev = {
+			'x': x,
+			'y': y
+		};
 	};
 	var move = function (e) {
 		if (clicked) {
 			x = e.pageX;
 			y = e.pageY;
-			
+
 			//                    ctx.fillRect(x, y, 1, 1);
-			
+
 			ctx.lineTo(x, y);
 			ctx.stroke();
-			
+
 			paramStore(x, y);
 		}
 	};
@@ -173,14 +214,14 @@ $.fn.drawMouse = function () {
 	$(this).on("mousedown", start);
 	$(this).on("mousemove", move);
 	$(window).on("mouseup", stop);
-	
+
 	var call_ws = function () {
 		//		txt.value = "call";
 		//		finished = true;
 		// $.ajax();
-		
+
 		paramFix();
-		
+
 		callnodejs(JSON.stringify(p1), function (result) {
 			play(result);
 			newCanvas();
