@@ -105,47 +105,27 @@ function paramClear() {
 	}
 }
 
+function brush(x, y) {
+	if (x >= 0 && y >= 0 && x <= 31 && y <= 31)
+		p0[x][y] = 1;
+}
+
 function paramStore(x, y) {
 	var x2 = Math.floor(x / w * 32);
 	var y2 = Math.floor(y / h * 32);
 	
-	p0[x2][y2] = 1;
+	// 3*3
+	for (i = -1; i <= 1; i++)
+		for (j = -1; j <= 1; j++)
+			brush(x2 + i, y2 + j);
 }
 
 var p1 = new Array(64);
-
-function dilatebyone(image) {
-	for (var i = 0; i < image.length; i++) {
-		for (var j = 0; j < image[i].length; j++) {
-			if (image[i][j] == 1) {
-				if (i > 0 && image[i - 1][j] == 0) image[i - 1][j] = 2;
-				if (j > 0 && image[i][j - 1] == 0) image[i][j - 1] = 2;
-				if (i + 1 < image.length && image[i + 1][j] == 0) image[i + 1][j] = 2;
-				if (j + 1 < image[i].length && image[i][j + 1] == 0) image[i][j + 1] = 2;
-				
-				if (i > 0 && j > 0 && image[i - 1][j - 1] == 0) image[i - 1][j - 1] = 2;
-				if (i + 1 < image.length && j > 0 && image[i + 1][j - 1] == 0) image[i + 1][j - 1] = 2;
-				if (i > 0 && j + 1 < image[i].length && image[i - 1][j + 1] == 0) image[i - 1][j + 1] = 2;
-				if (i + 1 < image.length && j + 1 < image[i].length && image[i + 1][j + 1] == 0) image[i + 1][j + 1] = 2;
-			}
-		}
-	}
-	for (i = 0; i < image.length; i++) {
-		for (j = 0; j < image[i].length; j++) {
-			if (image[i][j] == 2) {
-				image[i][j] = 1;
-			}
-		}
-	}
-	return image;
-}
 
 function paramFix() {
 	for (var i = 0; i < 64; i++) {
 		p1[i] = 0;
 	}
-	
-	p0 = dilatebyone(p0);
 	
 	for (var i = 0; i < 32; i++) {
 		for (var j = 0; j < 32; j++) {

@@ -1,0 +1,16 @@
+{
+  "name": "meetupml",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ViktorDudas/meetupml",
+  "authors": [
+    "Viktor Dudas <viktordudas@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
