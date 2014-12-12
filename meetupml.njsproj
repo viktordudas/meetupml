@@ -46,6 +46,8 @@
     <Content Include="bower_components\angular\bower.json" />
     <Content Include="bower_components\angular\package.json" />
     <Content Include="bower_components\angular\README.md" />
+    <Content Include="Documents\meetupexp.png" />
+    <Content Include="Documents\meetupws.png" />
     <Content Include="package.json" />
     <Content Include="public\audio\0.mp3" />
     <Content Include="public\audio\1.mp3" />
@@ -68,6 +70,7 @@
     <Folder Include="bin\" />
     <Folder Include="bower_components\" />
     <Folder Include="bower_components\angular\" />
+    <Folder Include="Documents\" />
     <Folder Include="public\" />
     <Folder Include="public\audio\" />
     <Folder Include="public\images\" />
