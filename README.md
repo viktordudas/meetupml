@@ -26,10 +26,10 @@ Optical+Recognition+of+Handwritten+Digits)
 
 #### Hasznos Linkek
 
-[scikit-learn algorithm cheat-sheet](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
+* [scikit-learn algorithm cheat-sheet](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
 
-[Machine Learning prezi](https://prezi.com/06swcwazd0ai/machine-learning/)
+* [Machine Learning prezi](https://prezi.com/06swcwazd0ai/machine-learning/)
 
-[Building Web Apps on the MEAN Stack with OData in Microsoft Azure](http://msdn.microsoft.com/en-us/magazine/dn857363.aspx)
+* [Building Web Apps on the MEAN Stack with OData in Microsoft Azure](http://msdn.microsoft.com/en-us/magazine/dn857363.aspx)
 
 
