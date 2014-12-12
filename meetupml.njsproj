@@ -65,6 +65,7 @@
     <Content Include="public\audio\8.mp3" />
     <Content Include="public\audio\9.mp3" />
     <Content Include="public\audio\z.mp3" />
+    <Content Include="public\favicon.ico" />
     <Content Include="public\stylesheets\style.styl" />
     <Content Include="README.md" />
     <Content Include="views\index.jade" />
