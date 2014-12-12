@@ -46,7 +46,11 @@
     <Content Include="bower_components\angular\bower.json" />
     <Content Include="bower_components\angular\package.json" />
     <Content Include="bower_components\angular\README.md" />
+    <Content Include="Documents\arch.png" />
+    <Content Include="Documents\arch.vsdx" />
+    <Content Include="Documents\meetupdb.xlsx" />
     <Content Include="Documents\meetupexp.png" />
+    <Content Include="Documents\meetupml.R" />
     <Content Include="Documents\meetupws.png" />
     <Content Include="package.json" />
     <Content Include="public\audio\0.mp3" />
