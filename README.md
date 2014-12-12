@@ -4,6 +4,10 @@ címe [Gépi Tanulás a felhőben, avagy "Mit adtak nekünk a Statisztikusok?"](
 
 A [Webalkalmazás](http://aka.ms/meetupml) kipróbálható élőben is.
 
+## Azure ML
+![](/https://raw.githubusercontent.com/ViktorDudas/meetupml/master/Documents/meetupexp.png)
+
+
 ### Hasznos Linkek
 
 [scikit-learn algorithm cheat-sheet](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
