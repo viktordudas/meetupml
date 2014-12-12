@@ -1,4 +1,4 @@
-## Microsoft Azure Machine Learning kliens példa
+# Microsoft Azure Machine Learning kliens példa
 A csomag egy Node.js példa webalkalmazást tartalmaz, ami Microsoft Azure Machine Learning segítségével kézírást ismer fel. Az előadás 2014. december 10-én hangzott el a [LogMeIn-Microsoft Enterprise Developer Meetup](http://www.meetup.com/Enterprise-Developer-Meetup/events/218821916/)-on, a 
 címe [Gépi Tanulás a felhőben, avagy "Mit adtak nekünk a Statisztikusok?"](https://sway.com/egma-XKs8dKS9nyj)
 
@@ -8,7 +8,6 @@ A [Webalkalmazás](http://aka.ms/meetupml) kipróbálható élőben is.
 ![](Documents/meetupexp.png)
 ## Azure ML Web service
 ![](Documents/meetupws.png)
-
 
 ### Hasznos Linkek
 
