@@ -54,6 +54,17 @@
     <Content Include="Documents\meetupml.R" />
     <Content Include="Documents\meetupws.png" />
     <Content Include="package.json" />
+    <Content Include="public\audiohun\0.mp3" />
+    <Content Include="public\audiohun\1.mp3" />
+    <Content Include="public\audiohun\2.mp3" />
+    <Content Include="public\audiohun\3.mp3" />
+    <Content Include="public\audiohun\4.mp3" />
+    <Content Include="public\audiohun\5.mp3" />
+    <Content Include="public\audiohun\6.mp3" />
+    <Content Include="public\audiohun\7.mp3" />
+    <Content Include="public\audiohun\8.mp3" />
+    <Content Include="public\audiohun\9.mp3" />
+    <Content Include="public\audiohun\z.mp3" />
     <Content Include="public\audio\0.mp3" />
     <Content Include="public\audio\1.mp3" />
     <Content Include="public\audio\2.mp3" />
@@ -78,6 +89,7 @@
     <Folder Include="bower_components\angular\" />
     <Folder Include="Documents\" />
     <Folder Include="public\" />
+    <Folder Include="public\audiohun\" />
     <Folder Include="public\audio\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
