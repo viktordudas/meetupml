@@ -2,7 +2,8 @@ library("RCurl")
 library("RJSONIO")
 
 # Accept SSL certificates issued by public Certificate Authorities
-options(RCurlOptions = list(sslVersion=3L, cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+# options(RCurlOptions = list(sslVersion=3L, cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 
 h = basicTextGatherer()
 req = list(Id="score00001",
@@ -22,11 +23,11 @@ req = list(Id="score00001",
            ))
 
 body = toJSON(req)
-api_key = "T3DcWCjPQETcNy5idib7sC4u4ysFmR/Io5oyQjEMYwkuLm4I4WFCESnW0cPSLxDtNW9SJo0+RKBMZPzTyN+/sg==" # Replace this with the API key for the web service
+api_key = "fTpZNXTI9SaKdE7bDL/+hQsFP9Y9kpLJf0anvI3CklUWZTQTthJXWOFSTzZ0m2jsazJM+rRDAWZSlAUBU177Mg==" # Replace this with the API key for the web service
 authz_hdr = paste('Bearer', api_key, sep=' ')
 
-h$reset()
-curlPerform(url = "https://ussouthcentral.services.azureml.net/workspaces/83d466c703644e079b388d51e04668e2/services/f76e2595f25842a6a6f806d38b6bc4a6/score",
+h$reset()       
+curlPerform(url = "https://europewest.services.azureml.net/workspaces/a8e8ae19ee7f412c9e7a1f1553e16849/services/b9a6fea1f6094741bbef94cf7b5e7bc9/score",
             httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
             postfields=body,
             writefunction = h$update,
@@ -35,3 +36,4 @@ curlPerform(url = "https://ussouthcentral.services.azureml.net/workspaces/83d466
 
 result = h$value()
 print(result)
+
